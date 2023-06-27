@@ -1,0 +1,30 @@
+package p100days_code;
+
+import java.util.Scanner;
+
+public class Large_smallelement_array {
+	public static void main(String args[]) {
+		int i,small,large,n;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the no of elements in array");
+		n=sc.nextInt();
+		int[] arr = new int[n];
+	    System.out.println("enter the elements in array");
+	    for(i=0;i<n;i++) {
+	    arr[i]=sc.nextInt();
+		
+	}
+	   small=arr[0];
+	   large=arr[0];
+	   for(i=0;i<n;i++) {
+		   if(arr[i]>large) {
+			   large=arr[i];
+		   }
+		   else if(arr[i]<small) {
+			   small=arr[i];
+		   }
+	   }
+System.out.println("the largest element in array is "+large);
+System.out.println("The smallest element in array is "+small);
+}
+}
