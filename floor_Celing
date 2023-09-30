@@ -1,0 +1,59 @@
+package p100days_code;
+
+import java.util.Scanner;
+
+//You’re given an sorted array arr of n integers and an integer x. Find the floor and ceiling of x in arr[0..n-1].
+//The floor of x is the largest element in the array which is smaller than or equal to x.
+//The ceiling of x is the smallest element in the array greater than or equal to x
+public class floor_celing {
+	public static int floor(int []arr, int x, int n) {
+		int heigh =n-1;
+		int low = 0;
+		int ans = n;
+		while(low<=heigh) {
+			int mid =(low+heigh)/2;
+			if(arr[mid]<=x) {
+				 ans = arr[mid];
+				low = mid+1;
+			}
+			else {
+				heigh = mid-1;
+			}
+			
+		}
+		return ans;
+	}
+	public static int celing(int []arr, int x, int n) {
+		int heigh =n-1;
+		int low = 0;
+		int ans = n;
+		while(low<=heigh) {
+			int mid =(low+heigh)/2;
+			if(arr[mid]>=x) {
+				 ans = arr[mid];
+				heigh= mid-1;
+			}
+			else {
+				low = mid+1;
+			}
+			
+		}
+		return ans;
+	}
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("size of array:");
+		int n = sc.nextInt();
+		int arr[]= new int[n];
+		System.out.print("elements of array:");
+		for(int i =0;i<n;i++) {
+		arr[i]= sc.nextInt();
+		}
+		System.out.println("enter the target element: ");
+		int x = sc.nextInt();
+		sc.close();
+		System.out.println(floor(arr,n,x));
+		System.out.println(celing(arr,x,n));
+	}
+
+}
